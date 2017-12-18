@@ -33,6 +33,12 @@ namespace TestAuth
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddAuthentication().AddGoogle(googleOptions =>
+            {
+                googleOptions.ClientId = "581045712534-n7aajgnblkfbs9pl9134211h5lm675bh.apps.googleusercontent.com";
+                googleOptions.ClientSecret = "fzqfB1f6fSVf4uyF2j4zHBom";
+            });
+
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
